@@ -1,0 +1,15 @@
+
+
+<div class="jumbotron">
+    <h1 class="display-4">Login page</h1>
+     <hr class="my-4">
+    </div>
+  <form method="POST" action="">
+     {% csrf_token %}
+    {% for item in form %}
+    {{item.label_tag}}
+    {{item}}
+    {% endfor %}
+    <input type="submit" value='login'>
+    </form>
+  

@@ -1,0 +1,24 @@
+{% comment %} {% extends 'base.html' %}
+{% load static %}
+{% block  content %} {% endcomment %}
+
+
+<h1> Blog </h1>
+
+<br>
+<a href = "{% url 'create' %}">create</a>
+
+<br>
+{% if post %}
+{% for item in post  %}
+{{item.title}}
+<a href = "{% url 'detail' item.id %}"> detail </a>
+<a href = "{% url 'update' item.id %}"> update </a>
+<a href = "{% url 'delete' item.id %}"> delete </a>
+
+{% endfor %}<br><br>
+{% else %}
+<h2> sorry no post  </h2>
+{% endif %}
+{% comment %} 
+{% endblock  %} {% endcomment %}

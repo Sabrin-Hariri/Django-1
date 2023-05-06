@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content  %}
+
+<div class="featured-post single-article">
+    <div class="container">
+      <div class="post-slide single-page" style="background-image: url('{{post.image.url}}');">
+        <div class="text-wrap pb-5">
+          <h2 class="text-black">{{post.title}}</h2>
+          <div class="meta">
+            <span>{{post.created_at}}</span>
+            <span>&bullet;</span>
+            <span>{{post.post_type}}</span>
+          </div>
+        </div>
+      </div> <!-- .post-slide -->
+
+    </div>
+  </div>
+
+  
+  <div class="container article">
+    <div class="row justify-content-center align-items-stretch">
+      
+      <article class="col-lg-8 order-lg-2 px-lg-5">
+            <p>{{post.description}}</p>
+
+
+        <div class="pt-5 categories_tags ">
+              <p>Categories:{{post.post_type}} </p>
+            </div>
+
+            <div class="post-single-navigation d-flex align-items-stretch">
+                {% if post.get_previous_by_created_at %}
+              <a href="{% url 'show' post.get_previous_by_created_at.id %} " class="mr-auto w-50 pr-4">
+                <span class="d-block">Previous Post</span>
+               {{post.title}}
+              </a>
+        
+              {% endif %}
+            </div>
+              <div class="post-single-navigation d-flex align-items-stretch">
+        
+              {% if post.get_next_by_created_at %}
+
+              <a href="{% url 'show' post.get_next_by_created_at.id %}" class="ml-auto w-50 text-right pl-4">
+                <span class="d-block">Next Post</span>
+                {{post.title}}
+              </a>
+              {% endif %}
+            
+            </div>
+
+      </article>
+
+
+        
+      </div>
+    </div>
+  </div>
+  
+{% endblock %}

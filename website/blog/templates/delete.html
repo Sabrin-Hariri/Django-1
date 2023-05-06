@@ -1,0 +1,16 @@
+
+<div class="jumbotron">
+    <h1 class="display-3"> Are You Sure !!</h1>
+</div>
+<br>
+{% comment %} <a href = "{% url 'detail' post.id %}"> show post </a> {% endcomment %}
+{% comment %} {{post}} {% endcomment %}
+<br>
+<form method = 'POST' >
+{% csrf_token %}
+
+<button type="submit" class="btn btn-primary"> Delete </button>
+</form>
+
+
+
